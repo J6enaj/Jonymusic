@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postar Música e Vídeo</title>
+</head>
+<body>
+    <h1>Postar Música e Vídeo</h1>
+
+    <h2>Música:</h2>
+    <input type="file" id="musicInput">
+    <br>
+    <button onclick="uploadMusic()">Upload Música</button>
+    <br>
+    <audio controls id="musicPlayer">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h2>Vídeo:</h2>
+    <input type="file" id="videoInput">
+    <br>
+    <button onclick="uploadVideo()">Upload Vídeo</button>
+    <br>
+    <video controls id="videoPlayer">
+        Your browser does not support the video element.
+    </video>
+
+    <script>
+        function uploadMusic() {
+            const musicInput = document.getElementById('musicInput');
+            const musicPlayer = document.getElementById('musicPlayer');
+            const file = musicInput.files[0];
+            const url = URL.createObjectURL(file);
+            musicPlayer.src = url;
+        }
+
+        function uploadVideo() {
+            const videoInput = document.getElementById('videoInput');
+            const videoPlayer = document.getElementById('videoPlayer');
+            const file = videoInput.files[0];
+            const url = URL.createObjectURL(file);
+            videoPlayer.src = url;
+        }
+    </script>
+</body>
+</html>
